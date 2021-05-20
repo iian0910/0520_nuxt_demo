@@ -3,13 +3,12 @@
     <ul>
       <li v-for="mountain in mountains" :key="mountain.title">
         <NuxtLink
-          :to="{ name: 'post/slug', params: { slug: mountain.slug } }"
+          :to="mountain.slug"
         >
           {{ mountain.title }}
         </NuxtLink>
       </li>
     </ul>
-    <Nuxt />
   </div>
 </template>
 <script>

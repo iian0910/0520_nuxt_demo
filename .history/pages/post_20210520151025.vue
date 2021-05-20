@@ -3,20 +3,21 @@
     <ul>
       <li v-for="mountain in mountains" :key="mountain.title">
         <NuxtLink
-          :to="{ name: 'post/slug', params: { slug: mountain.slug } }"
+          :to="mountain.slug"
         >
           {{ mountain.title }}
         </NuxtLink>
       </li>
     </ul>
-    <Nuxt />
   </div>
 </template>
 <script>
 export default {
-  async asyncData ({ $axios }) {
-    const mountains = await $axios.$get('https://api.nuxtjs.dev/mountains')
-    console.log('mountains', mountains)
+  async asyncData () {
+    // const mountains = await $axios.$get('https://api.nuxtjs.dev/mountains')
+    const mountains = await fetch('https://api.nuxtjs.dev/mountains').then((res) => {
+      res.json()
+    })
     return { mountains }
   }
 }
