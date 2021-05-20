@@ -3,12 +3,10 @@
     <article>
       <h1>{{ mountain.title }}</h1>
       <section>
-        <img :src="mountain.image" :alt="mountain.title">
+        <img :src="mountain.image" :alt="mountain.title" />
         <p>{{ mountain.description }}</p>
       </section>
-      <el-button type="primary" @click="goBack">
-        Back
-      </el-button>
+      <el-button type="primary" @click="goBack">Back</el-button>
     </article>
   </div>
 </template>

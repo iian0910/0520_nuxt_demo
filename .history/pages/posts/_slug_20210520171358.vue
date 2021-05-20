@@ -1,14 +1,12 @@
 <template>
-  <div>
+  <div class="slug">
     <article>
       <h1>{{ mountain.title }}</h1>
       <section>
-        <img :src="mountain.image" :alt="mountain.title">
+        <img :src="mountain.image" :alt="mountain.title" />
         <p>{{ mountain.description }}</p>
       </section>
-      <el-button type="primary" @click="goBack">
-        Back
-      </el-button>
+      <button @click="goBack">Back</button>
     </article>
   </div>
 </template>
@@ -28,15 +26,14 @@ export default {
 }
 </script>
 <style lang="scss">
-article {
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: center;
+.slug {
+  padding: 5px;
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 3px solid blue;
 }
-img {
-  height: 200px;
-}
-p {
-  text-align: left;
+h1 span {
+  color: brown;
 }
 </style>
