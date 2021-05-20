@@ -1,6 +1,6 @@
 <template>
   <div class="slug">
-    <h1>RouteParamsSlug: <span>{{ $route.params.slug }}</span></h1>
+    <h1>RouteParamsSlug: {{ $route.params.slug }}</h1>
   </div>
 </template>
 <script>
@@ -15,8 +15,5 @@ export default {
   height: 100%;
   display: block;
   border: 3px solid blue;
-}
-h1 span {
-  color: brown;
 }
 </style>

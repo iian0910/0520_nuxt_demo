@@ -9,6 +9,7 @@
         </NuxtLink>
       </li>
     </ul>
+    <Nuxt />
   </div>
 </template>
 <script>
