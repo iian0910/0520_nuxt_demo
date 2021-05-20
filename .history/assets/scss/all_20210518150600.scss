@@ -1,0 +1,63 @@
+.home-link {
+  padding: 10px 20px;
+  margin: 0 5px;
+  text-decoration: none;
+  color: white;
+  background-color: #F66587;
+  border: 1px solid #D40C3B;
+  border-radius: 4px;
+  &:focus {
+    outline: none;
+  }
+}
+
+.nuxt-link {
+  padding: 10px 20px;
+  margin: 0 5px;
+  text-decoration: none;
+  color: white;
+  background-color: #87BFFF;
+  border-radius: 4px;
+  &:focus {
+    outline: none;
+  }
+}
+
+.stepper {
+  display: flex;
+  justify-content: center;
+}
+
+.step-btn {
+  margin-top: 20px;
+}
+
+.info {
+  margin: 0 auto;
+  padding: 10px;
+  width: 500px;
+  border: 3px solid rgb(19, 219, 159);
+  border-radius: 4px;
+}
+
+.cus-label {
+  margin-bottom: 5px;
+  font-size: 16px;
+  display: block;
+}
+
+.zip-input {
+  width: 20%;
+}
+
+.city-input {
+  width: 38.5%;
+}
+
+.area-input {
+  width: 38.5%;
+}
+
+.cus-input {
+  margin-bottom: 10px;
+}
