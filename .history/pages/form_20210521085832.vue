@@ -14,7 +14,7 @@
             >
               <label for="name">顯示多筆驗證<span>*</span></label>
               <div :class="classes">
-                <el-input id="name" v-model="info" clearable></el-input>
+                <el-input id="name" v-model="info" clearable autocomplete="on"></el-input>
                 <ul class="m-0 p-0" style="list-style: none">
                   <li v-for="(error, idx) in errors" :key="idx" class="error-info">{{ error }}</li>
                 </ul>
@@ -73,7 +73,7 @@
           <el-col :span="24">
             <label>起日不能早於訖日</label>
             <ValidationProvider
-              name="confirmation"
+              name="confirm"
               rules="required"
             >
               <el-date-picker
@@ -84,7 +84,7 @@
               </el-date-picker>
             </ValidationProvider>
             <ValidationProvider
-              rules="required|betweenDate:@date1"
+              rules="required|betweenDate:@confirm"
               v-slot="{ errors, classes }"
             >
               <el-date-picker
@@ -113,7 +113,7 @@
               </el-date-picker>
             </ValidationProvider>
             <ValidationProvider
-              rules="required|differentThreeMonths:@date3"
+              rules="required|differentThreeMonths:@confirm"
               v-slot="{ errors, classes }"
             >
               <el-date-picker
@@ -144,7 +144,7 @@
               </el-date-picker>
             </ValidationProvider>
             <ValidationProvider
-              rules="required|diff90Day:@date5"
+              rules="required|diff90Day:@confirm"
               v-slot="{ errors, classes }"
             >
               <el-date-picker
@@ -293,7 +293,6 @@ export default Vue.extend({
         this.info2 = ''
 
         this.$nextTick(() => {
-          console.log('reset()')
           this.$refs.form.reset()
         })
       })

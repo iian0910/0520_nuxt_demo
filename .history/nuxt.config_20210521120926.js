@@ -1,4 +1,11 @@
 export default {
+  env: {
+    baseUrl: 'http://localhost:3000'
+  },
+
+  dev: {
+    baseUrl: 'http://localhost:6666'
+  },
 
   target: 'static',
 

@@ -19,7 +19,7 @@ extend('image', {
 
 // 數值區間驗證
 extend('minmax', {
-  validate (value, { min, max }:any) {
+  validate (value, { min, max }) {
     return value.length >= min && value.length <= max
   },
   params: ['min', 'max'],
@@ -30,7 +30,7 @@ extend('minmax', {
 extend('isBeforeDate', {
   validate (value) {
     const nowDate = new Date()
-    return moment(value).diff(moment(nowDate), 'days') >= 0
+    return moment(value).diff(moment(nowDate)) > 1
   },
   message: '日期不得小於今日'
 })
@@ -39,6 +39,7 @@ extend('isBeforeDate', {
 extend('betweenDate', {
   params: ['target'],
   validate (value, { target }:any) {
+    console.log('起日不能早於訖日', moment(value).diff(moment(target)))
     return moment(value).diff(moment(target)) < 1
   },
   message: '起日不能早於訖日'

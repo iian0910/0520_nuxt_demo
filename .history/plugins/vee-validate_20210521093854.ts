@@ -48,6 +48,9 @@ extend('betweenDate', {
 extend('differentThreeMonths', {
   params: ['target'],
   validate (value, { target }:any) {
+    console.log('value', moment(value))
+    console.log('target', moment(target))
+    console.log('diff', moment(value).diff(moment(target), 'months'))
     return moment(value).diff(moment(target), 'months') <= 3
   },
   message: '起訖日不得相差3個月'

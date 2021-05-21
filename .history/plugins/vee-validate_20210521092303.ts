@@ -30,7 +30,10 @@ extend('minmax', {
 extend('isBeforeDate', {
   validate (value) {
     const nowDate = new Date()
-    return moment(value).diff(moment(nowDate), 'days') >= 0
+    console.log('value', moment(value))
+    console.log('nowDate', moment(nowDate))
+    console.log('diff', moment(value).diff(moment(nowDate), 'days'))
+    return moment(value).diff(moment(nowDate), 'days') > 1
   },
   message: '日期不得小於今日'
 })
@@ -39,6 +42,9 @@ extend('isBeforeDate', {
 extend('betweenDate', {
   params: ['target'],
   validate (value, { target }:any) {
+    console.log('value', moment(value))
+    console.log('target', moment(target))
+    console.log('diff', moment(value).diff(moment(target)))
     return moment(value).diff(moment(target)) < 1
   },
   message: '起日不能早於訖日'

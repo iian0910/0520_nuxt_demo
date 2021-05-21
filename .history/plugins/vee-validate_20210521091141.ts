@@ -19,7 +19,7 @@ extend('image', {
 
 // 數值區間驗證
 extend('minmax', {
-  validate (value, { min, max }:any) {
+  validate (value, { min, max }) {
     return value.length >= min && value.length <= max
   },
   params: ['min', 'max'],
@@ -30,7 +30,7 @@ extend('minmax', {
 extend('isBeforeDate', {
   validate (value) {
     const nowDate = new Date()
-    return moment(value).diff(moment(nowDate), 'days') >= 0
+    return moment(value).diff(moment(nowDate)) > 1
   },
   message: '日期不得小於今日'
 })
@@ -38,7 +38,8 @@ extend('isBeforeDate', {
 // 起日不能早於訖日
 extend('betweenDate', {
   params: ['target'],
-  validate (value, { target }:any) {
+  validate (value, { target }) {
+    console.log('起日不能早於訖日', moment(value).diff(moment(target)))
     return moment(value).diff(moment(target)) < 1
   },
   message: '起日不能早於訖日'
@@ -47,7 +48,7 @@ extend('betweenDate', {
 // 起訖日不得相差3個月
 extend('differentThreeMonths', {
   params: ['target'],
-  validate (value, { target }:any) {
+  validate (value, { target }) {
     return moment(value).diff(moment(target), 'months') <= 3
   },
   message: '起訖日不得相差3個月'
@@ -56,7 +57,7 @@ extend('differentThreeMonths', {
 // 起訖日不得相差90天
 extend('diff90Day', {
   params: ['target'],
-  validate (value, { target }:any) {
+  validate (value, { target }) {
     return moment(value).diff(moment(target), 'day') <= 90
   },
   message: '起訖日不得相差90天'

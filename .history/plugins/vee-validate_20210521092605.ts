@@ -39,6 +39,9 @@ extend('isBeforeDate', {
 extend('betweenDate', {
   params: ['target'],
   validate (value, { target }:any) {
+    console.log('value', moment(value))
+    console.log('target', moment(target))
+    console.log('diff', moment(value).diff(moment(target)))
     return moment(value).diff(moment(target)) < 1
   },
   message: '起日不能早於訖日'

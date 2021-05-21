@@ -2,7 +2,7 @@
   <el-container>
     <el-main>
       <el-row :gutter="40">
-        <ValidationObserver v-slot="{ handleSubmit }" ref="form" tag="div">
+        <ValidationObserver v-slot="{ handleSubmit }" ref="form">
           <!-- 顯示多筆驗證 -->
           <el-col :xs="24" :md="12" class="col-mb">
             <ValidationProvider
@@ -73,7 +73,7 @@
           <el-col :span="24">
             <label>起日不能早於訖日</label>
             <ValidationProvider
-              name="confirmation"
+              name="confirm"
               rules="required"
             >
               <el-date-picker
@@ -84,7 +84,7 @@
               </el-date-picker>
             </ValidationProvider>
             <ValidationProvider
-              rules="required|betweenDate:@date1"
+              rules="required|betweenDate:@confirm"
               v-slot="{ errors, classes }"
             >
               <el-date-picker
@@ -113,7 +113,7 @@
               </el-date-picker>
             </ValidationProvider>
             <ValidationProvider
-              rules="required|differentThreeMonths:@date3"
+              rules="required|differentThreeMonths:@confirm"
               v-slot="{ errors, classes }"
             >
               <el-date-picker
@@ -144,7 +144,7 @@
               </el-date-picker>
             </ValidationProvider>
             <ValidationProvider
-              rules="required|diff90Day:@date5"
+              rules="required|diff90Day:@confirm"
               v-slot="{ errors, classes }"
             >
               <el-date-picker
@@ -293,7 +293,6 @@ export default Vue.extend({
         this.info2 = ''
 
         this.$nextTick(() => {
-          console.log('reset()')
           this.$refs.form.reset()
         })
       })

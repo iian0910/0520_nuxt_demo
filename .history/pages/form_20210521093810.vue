@@ -144,7 +144,7 @@
               </el-date-picker>
             </ValidationProvider>
             <ValidationProvider
-              rules="required|diff90Day:@date5"
+              rules="required|diff90Day:@confirm"
               v-slot="{ errors, classes }"
             >
               <el-date-picker
