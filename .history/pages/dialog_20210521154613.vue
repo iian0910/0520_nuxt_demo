@@ -17,12 +17,12 @@
               <div style="padding: 14px;">
                 <span>{{ item.name }}</span>
                 <div class="bottom clearfix">
-                  <el-button type="text" class="button" @click="open(item)">按鈕</el-button>
+                  <el-button type="text" class="button" @click="openChina(item)">按鈕</el-button>
                 </div>
               </div>
             </el-card>
           </el-col>
-          <Dialog ref="myDialog" />
+          <Dialog ref="china" />
         </el-row>
       </el-main>
     </el-container>
@@ -41,19 +41,19 @@ export default {
       ],
       dialogData: [
         {
-          name: 'Dialog-1',
+          name: '小豬1',
           bg: 'https://stickershop.line-scdn.net/stickershop/v1/sticker/337949683/android/sticker.png'
         },
         {
-          name: 'Dialog-2',
+          name: '小豬2',
           bg: 'https://stickershop.line-scdn.net/stickershop/v1/sticker/145478364/ANDROID/sticker.png'
         },
         {
-          name: 'Dialog-3',
+          name: '小豬3',
           bg: 'https://stickershop.line-scdn.net/stickershop/v1/sticker/145478357/ANDROID/sticker.png'
         },
         {
-          name: 'Dialog-4',
+          name: '小豬4',
           bg: 'https://stickershop.line-scdn.net/stickershop/v1/product/15187/LINEStorePC/main.png;compress=true'
         }
       ]
@@ -63,8 +63,8 @@ export default {
     setStatus (val) {
       this.dialogVisible = val
     },
-    open (item) {
-      this.$refs.myDialog.openDialog(item)
+    openChina (item) {
+      this.$refs.china && this.$refs.china.openDialog(item)
     }
   }
 }

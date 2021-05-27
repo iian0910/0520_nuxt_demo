@@ -2,7 +2,7 @@
   <el-container>
     <el-main>
       <el-row :gutter="40">
-        <ValidationObserver v-slot="{ handleSubmit }" ref="form" tag="div">
+        <ValidationObserver v-slot="{ handleSubmit }" ref="form">
           <!-- 顯示多筆驗證 -->
           <el-col :xs="24" :md="12" class="col-mb">
             <ValidationProvider

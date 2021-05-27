@@ -139,8 +139,8 @@
                 type="date"
                 placeholder="選擇日期"
                 :picker-options="expireTimeOption"
-                value-format="yyyy/MM/dd"
-                format="yyyy 年 MM 月 dd 日"
+                value-format="yyyy 年 MM 月 dd 日"
+                format="yyyy/MM/dd"
               >
               </el-date-picker>
             </ValidationProvider>
@@ -153,8 +153,8 @@
                 type="date"
                 placeholder="選擇日期"
                 :picker-options="expireTimeOption"
-                value-format="yyyy/MM/dd"
-                format="yyyy 年 MM 月 dd 日"
+                value-format="yyyy 年 MM 月 dd 日"
+                format="yyyy/MM/dd"
               >
               </el-date-picker>
               <span :class="classes">{{ errors[0] }}</span>

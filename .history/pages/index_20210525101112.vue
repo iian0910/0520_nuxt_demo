@@ -31,10 +31,8 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  created () {
-    console.log('process.env.NODE_ENV', process.env.NODE_ENV)
-  },
   mounted () {
+    // localStorage.setItem('1', '001')
     if (typeof window === 'undefined') {
       localStorage.setItem('2', '002')
     }

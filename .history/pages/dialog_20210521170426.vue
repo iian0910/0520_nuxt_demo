@@ -64,7 +64,7 @@ export default {
       this.dialogVisible = val
     },
     open (item) {
-      this.$refs.myDialog.openDialog(item)
+      this.$refs.myDialog && this.$refs.myDialog.openDialog(item)
     }
   }
 }

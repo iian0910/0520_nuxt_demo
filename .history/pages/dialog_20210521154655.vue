@@ -17,12 +17,12 @@
               <div style="padding: 14px;">
                 <span>{{ item.name }}</span>
                 <div class="bottom clearfix">
-                  <el-button type="text" class="button" @click="open(item)">按鈕</el-button>
+                  <el-button type="text" class="button" @click="openChina(item)">按鈕</el-button>
                 </div>
               </div>
             </el-card>
           </el-col>
-          <Dialog ref="myDialog" />
+          <Dialog ref="china" />
         </el-row>
       </el-main>
     </el-container>
@@ -63,8 +63,8 @@ export default {
     setStatus (val) {
       this.dialogVisible = val
     },
-    open (item) {
-      this.$refs.myDialog.openDialog(item)
+    openChina (item) {
+      this.$refs.china && this.$refs.china.openDialog(item)
     }
   }
 }

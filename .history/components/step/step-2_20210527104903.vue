@@ -28,14 +28,7 @@
 export default {
   data () {
     return {
-      getData: {
-        name: '',
-        tel: '',
-        city: '',
-        zip: '',
-        area: '',
-        address: ''
-      }
+      getData: null
     }
   },
   mounted () {

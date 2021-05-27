@@ -86,6 +86,7 @@ export default {
     if (this.$store.state.item) {
       this.formData = { ...this.$store.state.item }
     }
+    this.formData = null
   },
   methods: {
     getZipCode (event) {
@@ -100,11 +101,14 @@ export default {
     },
     next () {
       this.$refs.form.validate().then((success) => {
-        if (success) {
-          this.$store.commit('saveItem', this.formData)
-          this.$emit('next')
-        }
+        if (!success) {
+          return
+        };
       })
+
+      this.$store.commit('saveItem', this.formData)
+
+      this.$emit('next')
     }
   }
 }

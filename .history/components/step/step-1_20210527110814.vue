@@ -100,10 +100,11 @@ export default {
     },
     next () {
       this.$refs.form.validate().then((success) => {
-        if (success) {
-          this.$store.commit('saveItem', this.formData)
-          this.$emit('next')
+        if (!success) {
+          return
         }
+        this.$store.commit('saveItem', this.formData)
+        this.$emit('next')
       })
     }
   }

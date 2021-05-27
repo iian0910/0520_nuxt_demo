@@ -120,7 +120,6 @@
                 v-model="date4"
                 type="date"
                 placeholder="選擇日期"
-                :picker-options="expireTimeOption"
               >
               </el-date-picker>
               <span :class="classes">{{ errors[0] }}</span>
@@ -140,7 +139,7 @@
                 placeholder="選擇日期"
                 :picker-options="expireTimeOption"
                 value-format="yyyy/MM/dd"
-                format="yyyy 年 MM 月 dd 日"
+                format="yyyy/MM/dd"
               >
               </el-date-picker>
             </ValidationProvider>
@@ -152,9 +151,8 @@
                 v-model="date6"
                 type="date"
                 placeholder="選擇日期"
-                :picker-options="expireTimeOption"
                 value-format="yyyy/MM/dd"
-                format="yyyy 年 MM 月 dd 日"
+                format="yyyy/MM/dd"
               >
               </el-date-picker>
               <span :class="classes">{{ errors[0] }}</span>
