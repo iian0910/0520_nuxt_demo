@@ -42,6 +42,11 @@ export default {
           index: '4',
           link: '/step',
           name: 'STEP'
+        },
+        {
+          index: '5',
+          link: '/dialog2',
+          name: 'DIALOG2'
         }
         // {
         //   index: '5',
