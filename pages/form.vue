@@ -2,75 +2,112 @@
   <el-container>
     <el-main>
       <el-row :gutter="40">
+        <!-- Input -->
+        <!-- <el-input
+          id="name"
+          v-model="info"
+          class="multiple-info"
+          clearable
+        /> -->
+
+        <!-- date picker -->
+        <!-- <el-date-picker
+          v-model="beforeDate"
+          type="date"
+          placeholder="選擇日期"
+          class="date-info"
+          value-format="yyyy-MM-dd"
+        /> -->
+
+        <!-- checkbox -->
+        <!-- <el-checkbox
+          v-model="checked"
+          class="check-item"
+        >
+          選項1
+        </el-checkbox> -->
+
+        <!-- Vee-validate -->
         <ValidationObserver v-slot="{ handleSubmit }" ref="form" tag="div">
           <!-- 顯示多筆驗證 -->
           <el-col :xs="24" :md="12" class="col-mb">
             <ValidationProvider
+              v-slot="{ errors, classes }"
+              ref="provider"
               name="欄位1"
               mode="lazy"
-              :bails="false"
-              rules="required|minmax:3,8"
-              v-slot="{ errors, classes }"
+              rules="required"
             >
               <label for="name">顯示多筆驗證<span>*</span></label>
               <div :class="classes">
-                <el-input id="name" v-model="info" clearable></el-input>
-                <ul class="m-0 p-0" style="list-style: none">
-                  <li v-for="(error, idx) in errors" :key="idx" class="error-info">{{ error }}</li>
-                </ul>
+                <el-input
+                  id="name"
+                  v-model="info"
+                  class="multiple-info"
+                  clearable
+                />
+                <span class="error">{{ errors[0] }}</span>
               </div>
             </ValidationProvider>
           </el-col>
 
           <!-- 顯示單筆驗證 -->
-          <el-col :xs="24" :md="12">
+          <!-- <el-col :xs="24" :md="12">
             <ValidationProvider
+              v-slot="{ errors, classes }"
               name="欄位2"
               mode="lazy"
               rules="required|minmax:3,8"
-              v-slot="{ errors, classes }"
             >
               <label for="tel">顯示單筆驗證</label>
               <div :class="classes">
-                <el-input id="tel" v-model="info2" clearable></el-input>
+                <el-input
+                  id="tel"
+                  v-model="info2"
+                  clearable
+                />
                 <span>{{ errors[0] }}</span>
               </div>
             </ValidationProvider>
-          </el-col>
+          </el-col> -->
 
           <!-- 檔案上傳 Vee-validator -->
-          <el-col :span="24">
+          <!-- <el-col :span="24">
             <ValidationProvider
+              v-slot="{ errors, validate, classes }"
               name="Vee圖片欄位"
               rules="required|image"
-              v-slot="{ errors, validate, classes }"
             >
               <label for="">
-                <input class="upload-btn" type="file" @change="validate">
+                <input
+                  class="upload-btn"
+                  type="file"
+                  @change="validate"
+                >
               </label>
               <span :class="classes">{{ errors[0] }}</span>
             </ValidationProvider>
-          </el-col>
+          </el-col> -->
 
           <!-- 日期不得小於今日 -->
-          <el-col :span="24">
+          <!-- <el-col :span="24">
             <label>日期不得小於今日</label>
             <ValidationProvider
+              v-slot="{ errors, classes }"
               name="日期欄位"
               rules="required|isBeforeDate"
-              v-slot="{ errors, classes }"
             >
               <el-date-picker
                 v-model="beforeDate"
                 type="date"
-                placeholder="選擇日期">
-              </el-date-picker>
+                placeholder="選擇日期"
+              />
               <span :class="classes">{{ errors[0] }}</span>
             </ValidationProvider>
-          </el-col>
+          </el-col> -->
 
           <!-- 起日不能早於訖日 -->
-          <el-col :span="24">
+          <!-- <el-col :span="24">
             <label>起日不能早於訖日</label>
             <ValidationProvider
               name="confirmation"
@@ -80,25 +117,23 @@
                 v-model="date1"
                 type="date"
                 placeholder="選擇日期"
-              >
-              </el-date-picker>
+              />
             </ValidationProvider>
             <ValidationProvider
-              rules="required|betweenDate:@date1"
               v-slot="{ errors, classes }"
+              rules="required|betweenDate:@date1"
             >
               <el-date-picker
                 v-model="date2"
                 type="date"
                 placeholder="選擇日期"
-              >
-              </el-date-picker>
+              />
               <span :class="classes">{{ errors[0] }}</span>
             </ValidationProvider>
-          </el-col>
+          </el-col> -->
 
           <!-- 起訖日不得相差3個月 -->
-          <el-col :span="24">
+          <!-- <el-col :span="24">
             <label>起訖日不得相差3個月</label>
             <ValidationProvider
               name="confirm"
@@ -109,26 +144,24 @@
                 type="date"
                 placeholder="選擇日期"
                 :picker-options="expireTimeOption"
-              >
-              </el-date-picker>
+              />
             </ValidationProvider>
             <ValidationProvider
-              rules="required|differentThreeMonths:@date3"
               v-slot="{ errors, classes }"
+              rules="required|differentThreeMonths:@date3"
             >
               <el-date-picker
                 v-model="date4"
                 type="date"
                 placeholder="選擇日期"
                 :picker-options="expireTimeOption"
-              >
-              </el-date-picker>
+              />
               <span :class="classes">{{ errors[0] }}</span>
             </ValidationProvider>
-          </el-col>
+          </el-col> -->
 
           <!-- 起訖日不得相差90天 -->
-          <el-col :span="24">
+          <!-- <el-col :span="24">
             <label>起訖日不得相差90天</label>
             <ValidationProvider
               name="confirm"
@@ -141,12 +174,11 @@
                 :picker-options="expireTimeOption"
                 value-format="yyyy/MM/dd"
                 format="yyyy 年 MM 月 dd 日"
-              >
-              </el-date-picker>
+              />
             </ValidationProvider>
             <ValidationProvider
-              rules="required|diff90Day:@date5"
               v-slot="{ errors, classes }"
+              rules="required|diff90Day:@date5"
             >
               <el-date-picker
                 v-model="date6"
@@ -155,11 +187,10 @@
                 :picker-options="expireTimeOption"
                 value-format="yyyy/MM/dd"
                 format="yyyy 年 MM 月 dd 日"
-              >
-              </el-date-picker>
+              />
               <span :class="classes">{{ errors[0] }}</span>
             </ValidationProvider>
-          </el-col>
+          </el-col> -->
 
           <!--
             action            :上傳位置
@@ -239,7 +270,12 @@
 
           <!-- 送出 -->
           <el-col :spen="24">
-            <el-button type="primary" @click="handleSubmit(onSubmit)">Submit</el-button>
+            <el-button
+              type="primary"
+              @click="handleSubmit(onSubmit)"
+            >
+              Submit
+            </el-button>
           </el-col>
         </ValidationObserver>
       </el-row>
@@ -252,6 +288,7 @@ import Vue from 'vue'
 export default Vue.extend({
   data () {
     return {
+      checked: false,
       info: '',
       info2: '',
       fileName: '',
@@ -281,9 +318,6 @@ export default Vue.extend({
       }
     }
   },
-  mounted () {
-    console.log('HI')
-  },
   methods: {
     onSubmit () {
       this.$refs.form.validate().then((success) => {
@@ -293,9 +327,15 @@ export default Vue.extend({
         alert('Form has been submitted!')
         this.info = ''
         this.info2 = ''
+        this.beforeDate = null
+        this.date1 = null
+        this.date2 = null
+        this.date3 = null
+        this.date4 = null
+        this.date5 = null
+        this.date6 = null
 
         this.$nextTick(() => {
-          console.log('reset()', this.$refs)
           this.$refs.form.reset()
         })
       })
@@ -304,14 +344,7 @@ export default Vue.extend({
       document.querySelector('#fileinput').click()
     },
     checkFileSure () {
-      console.log(document.querySelector('#fileinput').files[0])
       this.fileName = document.querySelector('#fileinput').files[0].name
-    },
-    handleRemove (file, fileList) {
-      console.log('handleRemove', file, fileList)
-    },
-    handlePreview (file) {
-      console.log('handlePreview', file)
     },
     handleExceed (files, fileList) {
       this.$message.warning(`当前限制选择 3 个文件，本次选择了 ${files.length} 个文件，共选择了 ${files.length + fileList.length} 个文件`)
@@ -319,14 +352,8 @@ export default Vue.extend({
     beforeRemove (file) {
       return this.$confirm(`确定移除 ${file.name}？`)
     },
-    handleAvatarSuccess (res, file) {
-      console.log('HASRes', res)
-      console.log('HASFile', file)
+    handleAvatarSuccess (file) {
       this.imageUrl = URL.createObjectURL(file.raw)
-    },
-    handleAvatarError (res, file) {
-      console.log('HAERes', res)
-      console.log('HAEFile', file)
     },
     beforeAvatarUpload (file) {
       const isJPG = file.type === 'image/jpeg'

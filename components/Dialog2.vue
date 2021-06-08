@@ -1,3 +1,7 @@
+<!--
+  visible.sync            :控制 dialog 開關
+  close-on-click-modal    :外部空白處是否可以關閉dialog
+-->
 <template>
   <el-dialog
     title="請輸入"
@@ -6,10 +10,10 @@
     width="30%"
     center
   >
-    <label class="cus-label" for="username">姓名</label>
-    <el-input id="username" v-model="formData.username" class="cus-input" placeholder="姓名" />
-    <label class="cus-label" for="tel">電話</label>
-    <el-input id="tel" v-model="formData.tel" class="cus-input" placeholder="電話" />
+    <label class="cus-label" for="cardNo">Card No.</label>
+    <el-input id="cardNo" v-model="formData.cardNo" class="cus-input" placeholder="XXXX-XXXX-XXXX-XXXX" />
+    <label class="cus-label" for="securityCode">Security Code</label>
+    <el-input id="securityCode" v-model="formData.securityCode" class="cus-input" placeholder="" />
     <span slot="footer" class="dialog-footer">
       <el-button @click="cancelData">
         取 消
@@ -29,8 +33,8 @@ export default {
     return {
       dialogVisible: false,
       formData: {
-        username: '',
-        tel: ''
+        cardNo: '',
+        securityCode: ''
       }
     }
   },
@@ -38,8 +42,8 @@ export default {
   watch: {
     centerDialogVisible (newVal) {
       this.dialogVisible = newVal
-      this.formData.username = ''
-      this.formData.tel = ''
+      this.formData.cardNo = ''
+      this.formData.securityCode = ''
     }
   },
   methods: {

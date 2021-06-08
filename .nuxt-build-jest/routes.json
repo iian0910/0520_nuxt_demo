@@ -1,0 +1,74 @@
+[
+  {
+    "name": "404",
+    "path": "/404",
+    "component": "C:\\\\Users\\\\Ian\\\\Desktop\\\\Vue\\\\nuxt-demo\\\\pages\\\\404.vue",
+    "chunkName": "pages/404"
+  },
+  {
+    "name": "500",
+    "path": "/500",
+    "component": "C:\\\\Users\\\\Ian\\\\Desktop\\\\Vue\\\\nuxt-demo\\\\pages\\\\500.vue",
+    "chunkName": "pages/500"
+  },
+  {
+    "name": "carousel",
+    "path": "/carousel",
+    "component": "C:\\\\Users\\\\Ian\\\\Desktop\\\\Vue\\\\nuxt-demo\\\\pages\\\\carousel.vue",
+    "chunkName": "pages/carousel"
+  },
+  {
+    "name": "dialog",
+    "path": "/dialog",
+    "component": "C:\\\\Users\\\\Ian\\\\Desktop\\\\Vue\\\\nuxt-demo\\\\pages\\\\dialog.vue",
+    "chunkName": "pages/dialog"
+  },
+  {
+    "name": "dialog2",
+    "path": "/dialog2",
+    "component": "C:\\\\Users\\\\Ian\\\\Desktop\\\\Vue\\\\nuxt-demo\\\\pages\\\\dialog2.vue",
+    "chunkName": "pages/dialog2"
+  },
+  {
+    "name": "form",
+    "path": "/form",
+    "component": "C:\\\\Users\\\\Ian\\\\Desktop\\\\Vue\\\\nuxt-demo\\\\pages\\\\form.vue",
+    "chunkName": "pages/form"
+  },
+  {
+    "name": "guide",
+    "path": "/guide",
+    "component": "C:\\\\Users\\\\Ian\\\\Desktop\\\\Vue\\\\nuxt-demo\\\\pages\\\\guide.vue",
+    "chunkName": "pages/guide"
+  },
+  {
+    "name": "Home",
+    "path": "/Home",
+    "component": "C:\\\\Users\\\\Ian\\\\Desktop\\\\Vue\\\\nuxt-demo\\\\pages\\\\Home.vue",
+    "chunkName": "pages/Home"
+  },
+  {
+    "name": "post",
+    "path": "/post",
+    "component": "C:\\\\Users\\\\Ian\\\\Desktop\\\\Vue\\\\nuxt-demo\\\\pages\\\\post.vue",
+    "chunkName": "pages/post"
+  },
+  {
+    "name": "step",
+    "path": "/step",
+    "component": "C:\\\\Users\\\\Ian\\\\Desktop\\\\Vue\\\\nuxt-demo\\\\pages\\\\step.vue",
+    "chunkName": "pages/step"
+  },
+  {
+    "name": "posts-slug",
+    "path": "/posts/:slug?",
+    "component": "C:\\\\Users\\\\Ian\\\\Desktop\\\\Vue\\\\nuxt-demo\\\\pages\\\\posts\\\\_slug.vue",
+    "chunkName": "pages/posts/_slug"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "C:\\\\Users\\\\Ian\\\\Desktop\\\\Vue\\\\nuxt-demo\\\\pages\\\\index.vue",
+    "chunkName": "pages/index"
+  }
+]

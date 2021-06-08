@@ -47,6 +47,11 @@ export default {
           index: '5',
           link: '/dialog2',
           name: 'DIALOG2'
+        },
+        {
+          index: '6',
+          link: '/carousel',
+          name: 'CAROUSEL'
         }
         // {
         //   index: '5',

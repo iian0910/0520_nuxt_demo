@@ -1,12 +1,18 @@
 <template>
   <form @submit.prevent="submit">
-    <input type="text" v-model="id" />
-    <button type="submit">{{ text }}</button>
+    <input
+      v-model="id"
+      type="text"
+    >
+    <button type="submit">
+      {{ text }}
+    </button>
   </form>
 </template>
 <script>
 export default {
   props: {
+    // eslint-disable-next-line vue/require-default-prop
     text: {
       type: String,
       require: true

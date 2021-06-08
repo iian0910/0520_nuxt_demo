@@ -1,4 +1,5 @@
 module.exports = {
+  setupFiles: ['./jest-setup.js'],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/$1',
     '^~/(.*)$': '<rootDir>/$1',
@@ -7,8 +8,12 @@ module.exports = {
   moduleFileExtensions: ['js', 'vue', 'json'],
   transform: {
     '^.+\\.js$': 'babel-jest',
-    '.*\\.(vue)$': 'vue-jest'
+    '.*\\.(vue)$': 'vue-jest',
+    'vee-validate/dist/rules': 'babel-jest'
   },
+  transformIgnorePatterns: [
+    '<roodDir>/node_modules/(?!vee-validate/dist/rules)'
+  ],
   collectCoverage: true,
   collectCoverageFrom: [
     '<rootDir>/components/**/*.vue',
