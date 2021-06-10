@@ -69,23 +69,17 @@
         </p> -->
 
         <!-- get api data -->
-        <button @click="fetchResults">
+        <!-- <button @click="fetchResults">
           點我
         </button>
         <p class="show">
           {{ value }}
-        </p>
+        </p> -->
 
         <!-- Vee-validate -->
-        <!-- <ValidationObserver v-slot="{ handleSubmit }" ref="form" tag="div"> -->
-          <!-- <el-input
-            id="name"
-            v-model="info"
-            class="multiple-info"
-            clearable
-          /> -->
+        <ValidationObserver v-slot="{ handleSubmit }" ref="form" tag="div">
           <!-- 顯示多筆驗證 -->
-          <!-- <el-col :xs="24" :md="12" class="col-mb">
+          <el-col :xs="24" :md="12" class="col-mb">
             <ValidationProvider
               v-slot="{ errors, classes }"
               ref="provider"
@@ -104,7 +98,7 @@
                 <span class="error">{{ errors[0] }}</span>
               </div>
             </ValidationProvider>
-          </el-col> -->
+          </el-col>
 
           <!-- 顯示單筆驗證 -->
           <!-- <el-col :xs="24" :md="12">
@@ -324,15 +318,15 @@
           </el-col> -->
 
           <!-- 送出 -->
-          <!-- <el-col :spen="24">
+          <el-col :spen="24">
             <el-button
               type="primary"
               @click="handleSubmit(onSubmit)"
             >
               Submit
             </el-button>
-          </el-col> -->
-        <!-- </ValidationObserver> -->
+          </el-col>
+        </ValidationObserver>
       </el-row>
     </el-main>
   </el-container>

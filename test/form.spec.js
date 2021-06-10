@@ -2,24 +2,24 @@ import Form from '@/pages/form'
 import { createLocalVue, mount } from '@vue/test-utils'
 import ElementUI from 'element-ui'
 import flushPromises from 'flush-promises'
-// import { extend, ValidationObserver, ValidationProvider } from 'vee-validate'
-// import { required } from 'vee-validate/dist/rules'
+import { extend, ValidationObserver, ValidationProvider } from 'vee-validate'
+import { required } from 'vee-validate/dist/rules'
 
 const localVue = createLocalVue()
-// localVue.component('ValidationProvider', ValidationProvider)
-// localVue.component('ValidationObserver', ValidationObserver)
+localVue.component('ValidationProvider', ValidationProvider)
+localVue.component('ValidationObserver', ValidationObserver)
 localVue.use(ElementUI)
 
-// extend('required', {
-//   ...required,
-//   message: '此欄位為必填'
-// })
+extend('required', {
+  ...required,
+  message: '此欄位為必填'
+})
 
 // const filtro = {
 //   dtInicial: new Date()
 // }
 
-jest.mock('axios')
+// jest.mock('axios')
 
 describe('TEST !!', () => {
   // Input 元件測試
@@ -86,22 +86,22 @@ describe('TEST !!', () => {
   // })
 
   // axios 功能測試
-  it('fetches async when a button is clicked', async () => {
-    const wrapper = mount(Form, { localVue })
-    wrapper.find('button').trigger('click')
-    await flushPromises()
-    const showInfo = wrapper.find('.show')
-    console.log(showInfo.element.value)
-    // expect(wrapper.text()).toBeTruthy()
-  })
+  // it('fetches async when a button is clicked', async () => {
+  //   const wrapper = mount(Form, { localVue })
+  //   wrapper.find('button').trigger('click')
+  //   await flushPromises()
+  //   const showInfo = wrapper.find('.show')
+  //   console.log(showInfo.element.value)
+  //   // expect(wrapper.text()).toBeTruthy()
+  // })
 
   // Vee-Validate 元件測試
-  // it('validate', async () => {
-  //   const wrapper = mount(Form, { localVue })
-  //   // console.log(wrapper.html())
-  //   wrapper.find('.multiple-info input').setValue('')
-  //   await flushPromises()
-  //   const errorEl = wrapper.find('.error')
-  //   expect(errorEl.text()).toBe('此欄位為必填')
-  // })
+  it('validate', async () => {
+    const wrapper = mount(Form, { localVue })
+    // console.log(wrapper.html())
+    wrapper.find('.multiple-info input').setValue('')
+    await flushPromises()
+    const errorEl = wrapper.find('.error')
+    expect(errorEl.text()).toBe('此欄位為必填')
+  })
 })
