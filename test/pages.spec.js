@@ -8,11 +8,13 @@ import { mount, shallowMount } from '@vue/test-utils'
 // https://vue-test-utils.vuejs.org/api/options.html
 
 describe('MOUNT AND SHALLOWMOUNT', () => {
-  test('pages test', () => {
+  test('mount test', () => {
     const wrapper = mount(Home)
+    expect(wrapper.vm).toBeTruthy()
+  })
+
+  test('shallowMount test', () => {
     const wrapper2 = shallowMount(Home)
-    // expect(wrapper.vm).toBeTruthy()
-    console.log('MOUNT', wrapper.html())
-    console.log('SHALLOWMOUNT', wrapper2.html())
+    expect(wrapper2.vm).toBeTruthy()
   })
 })

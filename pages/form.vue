@@ -27,10 +27,65 @@
           選項1
         </el-checkbox> -->
 
+        <!-- filter -->
+        <!-- <el-input
+          id="name"
+          v-model="info"
+          class="dollar"
+          clearable
+        />
+        dollar:
+        <p class="show">
+          {{ info | dollar }}
+        </p> -->
+
+        <!-- computed -->
+        <!-- <el-input
+          v-model="valOne"
+          class="plus-val-one"
+          clearable
+        />
+        <el-input
+          v-model="valTwo"
+          class="plus-val-two"
+          clearable
+        />
+        anser:
+        <p class="show">
+          {{ plus }}
+        </p> -->
+
+        <!-- watch -->
+        <!-- <el-input
+          v-model="memberAccound"
+          class="member-accound"
+          clearable
+        />
+        <p
+          v-if="!verificationResult"
+          class="verificationResult"
+        >
+          請輸入正確格式
+        </p> -->
+
+        <!-- get api data -->
+        <button @click="fetchResults">
+          點我
+        </button>
+        <p class="show">
+          {{ value }}
+        </p>
+
         <!-- Vee-validate -->
-        <ValidationObserver v-slot="{ handleSubmit }" ref="form" tag="div">
+        <!-- <ValidationObserver v-slot="{ handleSubmit }" ref="form" tag="div"> -->
+          <!-- <el-input
+            id="name"
+            v-model="info"
+            class="multiple-info"
+            clearable
+          /> -->
           <!-- 顯示多筆驗證 -->
-          <el-col :xs="24" :md="12" class="col-mb">
+          <!-- <el-col :xs="24" :md="12" class="col-mb">
             <ValidationProvider
               v-slot="{ errors, classes }"
               ref="provider"
@@ -49,7 +104,7 @@
                 <span class="error">{{ errors[0] }}</span>
               </div>
             </ValidationProvider>
-          </el-col>
+          </el-col> -->
 
           <!-- 顯示單筆驗證 -->
           <!-- <el-col :xs="24" :md="12">
@@ -269,23 +324,30 @@
           </el-col> -->
 
           <!-- 送出 -->
-          <el-col :spen="24">
+          <!-- <el-col :spen="24">
             <el-button
               type="primary"
               @click="handleSubmit(onSubmit)"
             >
               Submit
             </el-button>
-          </el-col>
-        </ValidationObserver>
+          </el-col> -->
+        <!-- </ValidationObserver> -->
       </el-row>
     </el-main>
   </el-container>
 </template>
 <script>
 import Vue from 'vue'
+import axios from 'axios'
 
 export default Vue.extend({
+  filters: {
+    dollar (val) {
+      const re = /(\d{1,3})(?=(\d{3})+(?:$|\D))/g
+      return val.replace(re, '$1,')
+    }
+  },
   data () {
     return {
       checked: false,
@@ -315,7 +377,22 @@ export default Vue.extend({
         disabledDate (date) {
           return date.getTime() < Date.now() - 24 * 60 * 60 * 1000
         }
-      }
+      },
+      valOne: 0,
+      valTwo: 0,
+      memberAccound: '',
+      verificationResult: true,
+      value: null
+    }
+  },
+  computed: {
+    plus () {
+      return Number(this.valOne) + Number(this.valTwo)
+    }
+  },
+  watch: {
+    memberAccound (newVal) {
+      this.verificationResult = /^[A-Z]\d{9}$/.test(newVal)
     }
   },
   methods: {
@@ -369,6 +446,12 @@ export default Vue.extend({
     },
     handleError () {
       this.isUploadError = true
+    },
+    async fetchResults () {
+      const api = 'https://raw.githubusercontent.com/hexschool/KCGTravel/master/datastore_search.json'
+      await axios.get(api).then((res) => {
+        this.value = res.data.result.records
+      })
     }
   }
 })
